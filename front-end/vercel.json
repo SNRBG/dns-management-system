@@ -1,0 +1,10 @@
+# Vercel Frontend Configuration
+
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": "build",
+  "env": [
+    "REACT_APP_API_URL"
+  ]
+}

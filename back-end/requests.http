@@ -1,0 +1,73 @@
+@baseUrl = http://localhost:5000/api
+@token = 
+
+### Register User
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "confirmPassword": "password123"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Get Profile (replace @token with actual token)
+GET {{baseUrl}}/auth/profile
+Authorization: Bearer {{token}}
+
+### Create DNS Record
+POST {{baseUrl}}/dns
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "domain": "example.com",
+  "type": "A",
+  "value": "192.168.1.1",
+  "ttl": 3600,
+  "priority": 10
+}
+
+### Get All DNS Records
+GET {{baseUrl}}/dns
+Authorization: Bearer {{token}}
+
+### Get DNS Records by Domain
+GET {{baseUrl}}/dns?domain=example.com
+Authorization: Bearer {{token}}
+
+### Get DNS Records by Type
+GET {{baseUrl}}/dns?type=A
+Authorization: Bearer {{token}}
+
+### Get DNS Record by ID (replace with actual ID)
+GET {{baseUrl}}/dns/RECORD_ID
+Authorization: Bearer {{token}}
+
+### Update DNS Record (replace RECORD_ID)
+PUT {{baseUrl}}/dns/RECORD_ID
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "value": "192.168.1.2",
+  "ttl": 7200,
+  "priority": 20
+}
+
+### Delete DNS Record (replace RECORD_ID)
+DELETE {{baseUrl}}/dns/RECORD_ID
+Authorization: Bearer {{token}}
+
+### Health Check
+GET {{baseUrl}}/
