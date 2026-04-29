@@ -18,10 +18,10 @@ const Dashboard = () => {
   const [filterDomain, setFilterDomain] = useState("");
   const [filterType, setFilterType] = useState("");
 
-  // Fetch records
-  useEffect(() => {
-    fetchRecords();
-  }, [filterDomain, filterType]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  fetchRecords();
+}, [filterDomain, filterType]);
 
   const fetchRecords = async () => {
     try {
